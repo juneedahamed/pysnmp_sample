@@ -34,29 +34,30 @@
 
   Download the latest `pyasn1-0.1.7.tar.gz` from https://pypi.python.org/packages/source/p/pyasn1/
   
-    `tar xzvf pyasn1-0.1.7.tar.gz`
+  `tar xzvf pyasn1-0.1.7.tar.gz`
     
-    `cd pyasn1-0.1.7`
+  `cd pyasn1-0.1.7`
     
-    `sudo python setup.py install`
+  `sudo python setup.py install`
     
-    `cd test`    [optional]
+  `cd test`    [optional]
     
-    `python suite.py` [ optional ]
+  `python suite.py` [ optional ]
   
   
 ## Installing pysnmp
 
   Download `pysnmp-4.2.5.tar.gz` from https://pypi.python.org/packages/source/p/pysnmp/
   
-     `tar xzvf pysnmp-4.2.5.tar.gz`
+    `tar xzvf pysnmp-4.2.5.tar.gz`
+    
+    `sudo python setup.py install`
      
-     `sudo python setup.py install`
+    ### Optional Test
+      `python`
      
-     [Optional Test]
-     `python`
-     
-      import pysnmp 
+      `import pysnmp`
+      
       The above import within python interactive console should not throw any error
       
       
