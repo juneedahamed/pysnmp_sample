@@ -3,7 +3,7 @@ pysnmp_sample
 
 # How to use pysnmp 
  1. Refer to installation.md on how to install dependencies and pysnmp itself
- 2. In the installtion we installed the libsmi at ~/snmp/apps and pyasn1 and pysnmp to python site-packages
+ 2. The libsmi was installed at ~/snmp/apps and pyasn1 and pysnmp at python site-packages
  3. The libsmi is used to convert .mib files to .py files
  4. Convert using the command 
 
