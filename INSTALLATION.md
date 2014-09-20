@@ -30,3 +30,18 @@ Installing Dependencies
    `make install`
    
 
+2. pyasn1
+
+  Download the latest `pyasn1-0.1.7.tar.gz` from https://pypi.python.org/packages/source/p/pyasn1/
+  
+    `tar xzvf pyasn1-0.1.7.tar.gz`
+    
+    `cd pyasn1-0.1.7`
+    
+    `sudo python setup.py install`
+    
+    `cd test`    [optional]
+    
+    `python suite.py` [ optional ]
+  
+  
