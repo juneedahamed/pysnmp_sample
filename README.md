@@ -1,7 +1,6 @@
-pysnmp_sample
-=============
+##pysnmp_sample
 
-# How to use pysnmp  ( link to pysnmp http://pysnmp.sourceforge.net)
+###How to use pysnmp  (ink to pysnmp http://pysnmp.sourceforge.net)
 
  1. Refer to installation.md on how to install dependencies and pysnmp itself
  
@@ -17,4 +16,8 @@ pysnmp_sample
       Where mibfile.mib is the mib file and filename.py is the corresponding python file that will be used by pysnmp
 
  5. Note libsmi2pysnmp will be installed by pysnmp installation
+ 
+ 7. Example using the SAMPLEMIB.mib 
+ 	~/snmp/apps/bin/smidump -f python SAMPLEMIB.mib | > libsmi2pysnmp  SAMPLEMIB.py
+
 
