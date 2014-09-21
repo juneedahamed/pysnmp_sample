@@ -1,14 +1,14 @@
-# First Install Dependencies and later pysnmp
-## Dependencies 
+## First Install Dependencies and later pysnmp
+### Dependencies 
 
 1. libsmi
 2. pyasn1
 
 
-## Installing Dependencies
+### Installing Dependencies
 
 
-### 1. libsmi
+#### 1. libsmi
 
   Download the latest `libsmi-0.4.8.tar` from http://www.ibr.cs.tu-bs.de/projects/libsmi/download/
   
@@ -31,7 +31,7 @@
    `make install`
    
 
-### 2. pyasn1
+#### 2. pyasn1
 
   Download the latest `pyasn1-0.1.7.tar.gz` from https://pypi.python.org/packages/source/p/pyasn1/
   
@@ -46,7 +46,7 @@
   `python suite.py` [ optional ]
   
   
-## Installing pysnmp
+### Installing pysnmp
 
   Download `pysnmp-4.2.5.tar.gz` from https://pypi.python.org/packages/source/p/pysnmp/
   
@@ -54,7 +54,7 @@
     
     `sudo python setup.py install`
      
-    ### Optional Test
+    #### Optional Test
       `python`
      
       `import pysnmp`
