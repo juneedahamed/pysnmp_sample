@@ -1,0 +1,109 @@
+SAMPLEMIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+        experimental, OBJECT-TYPE, MODULE-IDENTITY, NOTIFICATION-TYPE, Integer32
+                FROM SNMPv2-SMI
+        DisplayString FROM SNMPv2-TC
+        MODULE-COMPLIANCE, NOTIFICATION-GROUP, OBJECT-GROUP  FROM SNMPv2-CONF;
+        
+
+sampleMIB MODULE-IDENTITY
+    LAST-UPDATED "201409200000Z"
+    ORGANIZATION "None"
+    CONTACT-INFO "https://github.com/juneedahamed/pysnmp_sample"
+    DESCRIPTION "This is an sample mib to learn how to use pysnmp"
+    REVISION "201409200000Z"
+    DESCRIPTION "This is an sample mib to learn how to use pysnmp"
+    ::= { sampleOrg 1 }
+
+sampleOrg OBJECT IDENTIFIER ::= { experimental 2222 }
+sampleAgent OBJECT IDENTIFIER ::= { sampleMIB 1}
+
+sampleNotifications OBJECT IDENTIFIER ::= { sampleAgent 0 }
+sampleAttrs OBJECT IDENTIFIER ::= { sampleAgent 1 }
+sampleMIBConformances OBJECT IDENTIFIER ::= { sampleAgent 2}
+
+sampleNotificationObjects OBJECT IDENTIFIER ::= {sampleNotifications 1 }
+
+sampleReadAttr OBJECT-TYPE
+    SYNTAX OCTET STRING
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION "A sample read only attribute"
+    ::= { sampleAttrs 1 }
+
+sampleReadWriteAttr OBJECT-TYPE
+    SYNTAX OCTET STRING
+    MAX-ACCESS read-write
+    STATUS current
+    DESCRIPTION "A sample read write attribute"
+    ::= { sampleAttrs 2 }
+
+
+--- Notifications
+sampleNotificationDisplayAttr OBJECT-TYPE
+    SYNTAX      DisplayString
+    MAX-ACCESS  accessible-for-notify
+    STATUS      current
+    DESCRIPTION
+        "A sample attribute to be associated with the notification"
+::= { sampleNotificationObjects 2 }
+
+sampleNotificationNumericAttr OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  accessible-for-notify
+    STATUS      current
+    DESCRIPTION
+        "A sample attribute to be associated with the notification"
+::= { sampleNotificationObjects 5 }
+
+
+sampleNotification NOTIFICATION-TYPE
+    OBJECTS     { 
+	              sampleNotificationDisplayAttr,
+                  sampleNotificationNumericAttr
+                 }
+    STATUS      current
+    DESCRIPTION
+        "A sample Notification"
+    ::= { sampleNotifications 2}
+
+
+-- Conformances
+sampleMIBConformance MODULE-COMPLIANCE
+    STATUS              current
+    DESCRIPTION         "Compliance statement for this MIB"
+    MODULE              -- Module SAMPLEMIB
+    MANDATORY-GROUPS    {
+                            sampleGetOrSetObjectsGroup,
+                            sampleNotificationObjectsGroup,
+                            sampleNotificationGroup
+                        }
+    ::= { sampleMIBConformances 1 }
+
+sampleGetOrSetObjectsGroup OBJECT-GROUP
+    OBJECTS {
+        sampleReadAttr,
+        sampleReadWriteAttr
+        }
+    STATUS   current
+    DESCRIPTION "Attrs that can be get or set on this agent"
+    ::= { sampleMIBConformances 2 }
+
+sampleNotificationObjectsGroup OBJECT-GROUP
+    OBJECTS {
+                sampleNotificationDisplayAttr,
+                sampleNotificationNumericAttr
+            }
+    STATUS   current
+    DESCRIPTION "Objects associated with notifications"
+    ::= { sampleMIBConformances 3 }
+
+sampleNotificationGroup NOTIFICATION-GROUP
+    NOTIFICATIONS { 
+                    sampleNotification
+                }
+    STATUS       current
+    DESCRIPTION "All Notifications sent by this agent"
+::= { sampleMIBConformances 4 }
+END
